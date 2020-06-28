@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Jokes.Views.JokeOfTheDayPage"
+             Title="Joke of the day">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="My Jokes" Command="{Binding NavigateCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Orientation="Vertical" Padding="20">
+        <Label Text="{Binding Path=DisplayedJoke.Text, Mode=OneWay}" HeightRequest="120"/>
+        <Label Text="Joke provided by icanhazdadjoke.com" TextColor="LightGray" HorizontalOptions="Center" FontSize="Micro" HeightRequest="20"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Text="Get a new one" Command="{Binding LoadDataCommand}" Grid.Column="0" BackgroundColor="Green" TextColor="White"/>
+            <Button Text="Add to my jokes" Command="{Binding AddCommand}" Grid.Column="1" BackgroundColor="Orange" TextColor="White" />
+        </Grid>
+    </StackLayout>
+    
+</ContentPage>
